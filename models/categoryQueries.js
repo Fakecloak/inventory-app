@@ -10,7 +10,21 @@ async function getCategoryById(id) {
     return rows[0] || null;
 }
 
+async function createCategory(name, description,){
+    const query = `
+    INSERT INTO categories(name, description) VALUES 
+    ($1, $2)
+    RETURNING *
+    `;
+
+    const{rows} = await pool.query(query, [name,description])
+    return rows[0]
+
+}
+
 module.exports = {
     getAllCategories,
     getCategoryById,
+    createCategory,
+
 }

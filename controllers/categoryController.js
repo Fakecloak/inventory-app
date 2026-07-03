@@ -23,7 +23,13 @@ async function getCategoryDetails(req,res) {
     res.render('categories/details', {title: category.name, category, items})
 }
 
+async function newCategoryGet(req,res){
+    res.render('categories/form', {title: 'Create Category'})
+
+}
+
 module.exports = {
     getCategories,
     getCategoryDetails,
+    newCategoryGet,
 }

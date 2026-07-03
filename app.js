@@ -2,20 +2,24 @@ const path = require('node:path');
 const express = require('express');
 const app = express();
 
-const indexRouter = require('./routes/indexRouter');
-
+//view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+//middlewares
 app.use(express.urlencoded({extended:true}));
 
+//router
 const indexRouter = require('./routes/indexRouter');
 const categoryRouter = require('./routes/categoryRouter');
 const itemRouter = require('./routes/itemRouter')
 
-app.use('/', indexRouter);
+//router routes
 app.use('/categories', categoryRouter);
-app.use('items', itemRouter);
+app.use('/items', itemRouter);
+
+// Generic root path goes LAST
+app.use('/', indexRouter);
 
 
 
