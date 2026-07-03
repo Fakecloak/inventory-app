@@ -12,7 +12,11 @@
     <h2>Items in this category:</h2>
     <ul>
         <% items.forEach(item => { %>
-            <li><%= item.name %></li>
+            <li>
+                <a href="/items/<%= item.id %>">
+                    <%= item.name %>
+                </a>
+            </li>
         <% }); %>
     </ul>
 </body>

@@ -9,6 +9,7 @@ async function getCategoryById(id) {
     const {rows} = await pool.query(`SELECT * FROM categories WHERE id=$1`, [id]);
     return rows[0] || null;
 }
+
 module.exports = {
     getAllCategories,
     getCategoryById,
