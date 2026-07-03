@@ -47,10 +47,22 @@ async function newCategoryPost (req,res) {
     res.redirect(`/categories/${category.id}`);
 }
 
+async function deleteCategoryPost (req,res) {
+    const categoryID = req.params.id;
+    
+    if(!categoryID){
+        return res.status(404).send('Category not found');
+    }
+
+    await categoryQuery.deleteCategory(categoryID);
+    res.redirect('/')
+}
+
 
 module.exports = {
     getCategories,
     getCategoryDetails,
     newCategoryGet,
     newCategoryPost,
+    deleteCategoryPost,
 }

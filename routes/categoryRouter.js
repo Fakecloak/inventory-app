@@ -13,6 +13,6 @@ router.post('/new', Category_FormValidation,categoryController.newCategoryPost);
 
 router.get('/:id', categoryController.getCategoryDetails);
 
-
+router.post('/:id/delete', categoryController.deleteCategoryPost);
 
 module.exports = router;
