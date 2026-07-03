@@ -4,9 +4,12 @@ const router = Router();
 
 const categoryController = require('../controllers/categoryController');
 
+//middlwares
+const  { Category_FormValidation } = require('../middlewares/FormValidation')
+
 //routes
 router.get('/new', categoryController.newCategoryGet);
-// router.post('/new', categoryController.newCategoryPost);
+router.post('/new', Category_FormValidation,categoryController.newCategoryPost);
 
 router.get('/:id', categoryController.getCategoryDetails);
 

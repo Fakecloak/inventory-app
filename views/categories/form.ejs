@@ -7,16 +7,19 @@
 </head>
 <body>
     <h1> Create New Category Here </h1>
-    <form method="POST">
+    <%- include('../partials/errors') %>
+    <form action="/categories/new" method="POST">
 
     <input
         type="text"
         name="name"
         placeholder="Category name"
+        required
     >
 
     <textarea
         name="description"
+        required
     ></textarea>
 
     <button type="submit">Create Category</button>

@@ -1,3 +1,5 @@
+const {matchedData, validationResult } = require("express-validator");
+
 //import queries from models
 const categoryQuery = require('../models/categoryQueries');
 const itemQuery = require('../models/itemQueries');
@@ -23,13 +25,32 @@ async function getCategoryDetails(req,res) {
     res.render('categories/details', {title: category.name, category, items})
 }
 
+//get form view
 async function newCategoryGet(req,res){
     res.render('categories/form', {title: 'Create Category'})
 
 }
 
+//post form view
+async function newCategoryPost (req,res) {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()){
+        return res.render('categories/form',{
+            title: 'Create Category',
+            errors: errors.array(),
+        })
+    }
+    const {name, description} = matchedData(req);
+
+    const category = await categoryQuery.createCategory(name,description);
+
+    res.redirect(`/categories/${category.id}`);
+}
+
+
 module.exports = {
     getCategories,
     getCategoryDetails,
     newCategoryGet,
+    newCategoryPost,
 }
