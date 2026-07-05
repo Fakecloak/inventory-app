@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page | Inventory App</title>
-</head>
-<body>
-    <%- include('partials/navbar') %>
-    <h1> <%= title %></h1>
+<%- include('partials/head', { title: `${title} | Inventory App` }) %>
+
+<%- include('partials/navbar') %>
+
+    <h1 class="text-4xl font-bold text-blue-500" > <%= title %></h1>
     <ul>
         <% categories.forEach(category => {%>
             <li>
@@ -18,5 +13,4 @@
             <% }) %>
     </ul>
     
-</body>
-</html>
+<%- include('partials/footer') %>

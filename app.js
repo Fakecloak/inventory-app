@@ -6,6 +6,9 @@ const app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+//serving static files
+app.use(express.static(path.join(__dirname, 'public')));
+
 //middlewares
 app.use(express.urlencoded({extended:true}));
 
