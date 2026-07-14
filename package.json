@@ -4,9 +4,10 @@
   "description": "This Project consist of Express + PostgreSQL + MVC + CRUD + Validation.",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon app.js",
-    "tailwind": "npx @tailwindcss/cli -i ./public/css/input.css -o ./public/css/output.css --watch"
+  "test": "echo \"Error: no test specified\" && exit 1",
+  "dev": "nodemon app.js",
+  "tailwind": "npx @tailwindcss/cli -i ./public/css/input.css -o ./public/css/output.css --watch",
+  "watch": "concurrently \"npm run dev\" \"npm run tailwind\""
   },
   "repository": {
     "type": "git",
