@@ -8,7 +8,6 @@
 </head>
 <body>
     <%- include('../partials/navbar') %>
-    <%- include('../partials/errors') %>
 
     <form
     action="/items/new"
@@ -20,6 +19,8 @@
         <h1 class="text-3xl font-bold text-center mb-8">
             Create New Item
         </h1>
+
+        <%- include('../partials/errors') %>
 
         <div class="flex flex-col gap-6">
 
@@ -78,7 +79,7 @@
                 </div>
 
                 <div class="flex flex-col gap-2 flex-1">
-                    <label for="stock_quantity" class="font-semibold">Stock Quantity</label>
+                    <label for="stock_quantity" class="font-semibold">Quantity</label>
                     <input
                         type="number"
                         name="stock_quantity"
